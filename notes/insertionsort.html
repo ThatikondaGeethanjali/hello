@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+
+<body>
+	<b><h1 style="font-size:300%" align="center"><mark style="background-color:gray;">Insertion Sort</mark></h1></b></br>
+	<!-- Use of <p> tag -->
+	<p style="font-size:160%;">In this article, we will discuss the Insertion sort Algorithm. The working procedure of insertion sort is also simple. This article will be very helpful and interesting to students as they might face insertion sort as a question in their examinations. So, it is important to discuss the topic.</p></br>
+
+<p style="font-size:160%;">Insertion sort works similar to the sorting of playing cards in hands. It is assumed that the first card is already sorted in the card game, and then we select an unsorted card. If the selected unsorted card is greater than the first card, it will be placed at the right side; otherwise, it will be placed at the left side. Similarly, all unsorted cards are taken and put in their exact place.</p></br>
+
+<p style="font-size:160%;">The same approach is applied in insertion sort. The idea behind the insertion sort is that first take one element, iterate it through the sorted array. Although it is simple to use, it is not appropriate for large data sets as the time complexity of insertion sort in the average case and worst case is O(n2), where n is the number of items. Insertion sort is less efficient than the other sorting algorithms like heap sort, quick sort, merge sort, etc.</p></br>
+
+<p style="font-size:160%;">Insertion sort has various advantages such as -</p>
+<ul style="font-size:160%;"><li>Simple implementation</li>
+<li>Efficient for small data sets</li>
+<li>Adaptive, i.e., it is appropriate for data sets that are already substantially sorted.</li></ul>
+
+
+<h2 style="font-size:250%"><ins>Algorithm</ins></h2> 
+<p style="font-size:160%;">The simple steps of achieving the insertion sort are listed as follows -</p>
+
+<p style="font-size:160%;"><b>Step 1 -</b> If the element is the first element, assume that it is already sorted. Return 1.</br></br>
+
+<b>Step2</b> - Pick the next element, and store it separately in a key.</br></br>
+
+<b>Step3</b> - Now, compare the key with all elements in the sorted array.</br></br>
+
+<b>Step 4 -</b> If the element in the sorted array is smaller than the current element, then move to the next element. Else, shift greater elements in the array towards the right.</br></br> 
+<b>Step 5 -</b> Insert the value.</br></br>
+
+<b>Step 6 -</b>Repeat until the array is sorted.</p></br></br>
+
+<h2 style="font-size:250%"><ins>Working of Insertion sort Algorithm</ins></h2>
+<p style="font-size:160%;">Now, let's see the working of the insertion sort Algorithm.</br></br></br>
+
+To understand the working of the insertion sort algorithm, let's take an unsorted array. It will be easier to understand the insertion sort via an example.</br></br></br>
+
+Let the elements of array are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Initially, the first two elements are compared in insertion sort.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort2.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Here, 31 is greater than 12. That means both elements are already in ascending order. So, for now, 12 is stored in a sorted sub-array.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort3.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, move to the next two elements and compare them.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort4.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Here, 25 is smaller than 31. So, 31 is not at correct position. Now, swap 31 with 25. Along with swapping, insertion sort will also check it with all elements in the sorted array.</br></br></br>
+
+For now, the sorted array has only one element, i.e. 12. So, 25 is greater than 12. Hence, the sorted array remains sorted after swapping.
+</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort5.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, two elements in the sorted array are 12 and 25. Move forward to the next elements that are 31 and 8.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort6.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Both 31 and 8 are not sorted. So, swap them.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort7.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">After swapping, elements 25 and 8 are unsorted.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort8.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">So, swap them.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort9.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, elements 12 and 8 are unsorted.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort10.png" width="300" height="50"></p></br>
+
+v<p style="font-size:160%;">So, swap them too.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort11.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, the sorted array has three items that are 8, 12 and 25. Move to the next items that are 31 and 32.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort12.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Hence, they are already sorted. Now, the sorted array includes 8, 12, 25 and 31.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort13.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Move to the next elements that are 32 and 17.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort14.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">17 is smaller than 32. So, swap them.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort15.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Swapping makes 31 and 17 unsorted. So, swap them too.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort16.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, swapping makes 25 and 17 unsorted. So, perform swapping again.</p></br>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort17.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, the array is completely sorted.</p></br>
+
+<p><h2 style="font-size:250%"><ins>Insertion sort complexity</ins></h2></p></br>
+<p style="font-size:160%;" >Now, let's see the time complexity of Insertion sort in the best case, average case, and worst case. We will also see the space complexity of bubble sort.</p></br>
+
+<p><h3 style="font-size:180%">1. Time Complexity</h3></p>
+
+<table>
+
+<tr>
+<th>Case</th>
+<th>Time Complexity</th>
+</tr>
+
+<tr>
+<td>
+<strong>Best Case</strong>
+</td>
+<td>O(n)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Average Case</strong>
+</td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Worst Case</strong>
+</td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+
+</table></br></br>
+
+<ul style="font-size:160%;"><li><b>Best Case Complexity</b> -It occurs when there is no sorting required, i.e. the array is already sorted. The best-case time complexity of insertion sort is <b>O(n).</b></li>
+<li><b>Average Case Complexity</b>- It occurs when the array elements are in jumbled order that is not properly ascending and not properly descending. The average case time complexity of insertion sort is  <b>O(n<sup>2</sup>).</b></li>
+<li><b>Worst Case Complexity</b> -  It occurs when the array elements are required to be sorted in reverse order. That means suppose you have to sort the array elements in ascending order, but its elements are in descending order. The worst-case time complexity of insertion sort is <b>O(n<sup>2</sup>).</b></li></ul>
+
+<p><h3 style="font-size:180%">2. Space Complexity</h3></p>
+
+<table>
+
+<tr>
+<td>
+<strong>Space complexity</strong>
+</td>
+<td>O(1)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Stable</strong>
+</td>
+<td>Yes</td>
+</tr>
+
+</table>
+<ul style="font-size:160%;"><li>The space complexity of insertion sort is O(1). It is because, in insertion sort, an extra variable is required for swapping.</li></ul>
+
+
+
+
+</body>
+</html>

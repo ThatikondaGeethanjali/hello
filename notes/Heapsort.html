@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+
+<body>
+	<b><h1 style="font-size:300%" align="center"><mark style="background-color:gray;">Heap Sort</mark></h1></b></br>
+	<!-- Use of <p> tag -->
+	<p style="font-size:160%;">Heap sort processes the elements by creating the min-heap or max-heap using the elements of the given array. Min-heap or max-heap represents the ordering of array in which the root element represents the minimum or maximum element of the array.</p></br>
+        <p style="font-size:160%;">Heap sort basically recursively performs two main operations -</p>
+<ul style="font-size:160%;"><li>Build a heap H, using the elements of array.</li>
+<li>Repeatedly delete the root element of the heap formed in 1st phase.</li></ul>
+  <p style="font-size:160%;">Before knowing more about the heap sort, let's first see a brief description of <b>Heap</b>.</p>      
+
+<h1 style="color:voilet">What is a heap?</h1>
+<p style="font-size:160%;" >A heap is a complete binary tree, and the binary tree is a tree in which the node can have the utmost two children. A complete binary tree is a binary tree in which all the levels except the last level, i.e., leaf node, should be completely filled, and all the nodes should be left-justified.</p></br>
+
+<h1 style="color:voilet">What is heap sort?</h1>
+<p style="font-size:160%;">Heapsort is a popular and efficient sorting algorithm. The concept of heap sort is to eliminate the elements one by one from the heap part of the list, and then insert them into the sorted part of the list.</p>
+<ul><li><p style="font-size:160%;">Heapsort is the in-place sorting algorithm.</p></li>
+<li><p style="font-size:160%;">Now, let's see the algorithm of heap sort.</p></li></br>
+
+<h2 style="font-size:250%"><ins>Algorithm</ins></h2>        
+<pre style="background-color:lightgray"><h2>HeapSort(arr)  
+BuildMaxHeap(arr)  
+for i = length(arr) to 2  
+    swap arr[1] with arr[i]  
+        heap_size[arr] = heap_size[arr] ? 1  
+        MaxHeapify(arr,1)  
+End  </h2></pre></br>  
+
+<h2 style="font-size:200%"><ins>BuildMaxHeap(arr)</ins></h2>
+<pre style="background-color:lightgray"><h2>BuildMaxHeap(arr)  
+    heap_size(arr) = length(arr)  
+    for i = length(arr)/2 to 1  
+MaxHeapify(arr,i)  
+End   </h2></pre></br>  
+
+
+<h2 style="font-size:200%"><ins>MaxHeapify(arr,i)</ins></h2>
+
+<pre style="background-color:lightgray"><h2>MaxHeapify(arr,i)  
+L = left(i)  
+R = right(i)  
+if L ? heap_size[arr] and arr[L] > arr[i]  
+largest = L  
+else  
+largest = i  
+if R ? heap_size[arr] and arr[R] > arr[largest]  
+largest = R  
+if largest != i  
+swap arr[i] with arr[largest]  
+MaxHeapify(arr,largest)  
+End   </h2></pre></br>  
+
+<h2 style="font-size:250%"><ins>Working of Heap sort Algorithm</ins></h2>
+<p style="font-size:160%;">In heap sort, basically, there are two phases involved in the sorting of elements. By using the heap sort algorithm, they are as follows -</p>
+<ul style="font-size:160%;"><li>The first step includes the creation of a heap by adjusting the elements of the array.</li>
+<li>After the creation of heap, now remove the root element of the heap repeatedly by shifting it to the end of the array, and then store the heap structure with the remaining elements.</li></ul>
+
+
+<p style="font-size:160%;">Now let's see the working of heap sort in detail by using an example. To understand it more clearly, let's take an unsorted array and try to sort it using heap sort. It will make the explanation clearer and easier.</b></p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm1.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">First, we have to construct a heap from the given array and convert it into max heap.</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm2.png" width="300" height="200"></p></br>
+
+<p style="font-size:160%;">After converting the given heap into max heap, the array elements are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm3.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Next, we have to delete the root element <b>(89)</b> from the max heap. To delete this node, we have to swap it with the last node, i.e. <b>(11)</b>. After deleting the root element, we again have to heapify it to convert it into max heap.</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm4.png" width="300" height="200"></p></br>
+
+<p style="font-size:160%;">After swapping the array element 89 with 11, and converting the heap into max-heap, the elements of array are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm5.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">In the next step, again, we have to delete the root element <b>(81)</b> from the max heap. To delete this node, we have to swap it with the last node, i.e.<b>(54)</b>. After deleting the root element, we again have to heapify it to convert it into max heap.</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm6.png" width="300" height="200"></p></br>
+
+<p style="font-size:160%;">After swapping the array element <b>81</b> with <b>54</b> and converting the heap into max-heap, the elements of array are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm7.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">In the next step, we have to delete the root element <b>(76)</b> from the max heap again. To delete this node, we have to swap it with the last node, i.e.<b>(9)</b>. After deleting the root element, we again have to heapify it to convert it into max heap.</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm8.png" width="300" height="200"></p></br>
+
+<p style="font-size:160%;">After swapping the array element <b>76</b> with <b>9</b> and converting the heap into max-heap, the elements of array are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm9.png" width="300" height="50"></p></br>
+
+
+<p style="font-size:160%;">In the next step, again we have to delete the root element <b>(54)</b> from the max heap. To delete this node, we have to swap it with the last node, i.e. <b>(14).</b> After deleting the root element, we again have to heapify it to convert it into max heap.</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm10.png" width="300" height="200"></p></br>
+
+
+<p style="font-size:160%;">After swapping the array element <b>54</b> with <b>14</b> and converting the heap into max-heap, the elements of array are-</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm11.png" width="300" height="50"></p></br>
+
+
+<p style="font-size:160%;">In the next step, again we have to delete the root element <b>(22)</b> from the max heap. To delete this node, we have to swap it with the last node, i.e.<b>(11).</b> After deleting the root element, we again have to heapify it to convert it into max heap.</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm12.png" width="300" height="200"></p></br>
+
+
+<p style="font-size:160%;">After swapping the array element <b>22</b> with <b>11</b> and converting the heap into max-heap, the elements of array are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm13.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">In the next step, again we have to delete the root element <b>(14)</b> from the max heap. To delete this node, we have to swap it with the last node, i.e. <b>(9).</b> After deleting the root element, we again have to heapify it to convert it into max heap.</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm14.png" width="300" height="200"></p></br>
+
+<p style="font-size:160%;">After swapping the array element <b>14</b> with <b>9</b> and converting the heap into max-heap, the elements of array are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm15.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">In the next step, again we have to delete the root element <b>(11)</b> from the max heap. To delete this node, we have to swap it with the last node, i.e.<b>(9).</b> After deleting the root element, we again have to heapify it to convert it into max heap.</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm16.png" width="300" height="50"></p></br>
+
+
+<p style="font-size:160%;">After swapping the array element <b>11</b> with <b>9</b>, the elements of array are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm17.png" width="300" height="50"></p></br>
+
+
+<p style="font-size:160%;">Now, heap has only one element left. After deleting it, heap will be empty.</p></br>
+<img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm19.png" width="300" height="50"></p></br>
+
+
+<p style="font-size:160%;">Now, the array is completely sorted.</p></br>
+
+
+
+
+<p><h2 style="font-size:250%"><ins>Heap sort complexity</ins></h2></p></br>
+<p style="font-size:160%;" >Now, let's see the time complexity of Heap sort in the best case, average case, and worst case. We will also see the space complexity of bubble sort.</p></br>
+
+<p><h3 style="font-size:180%">1. Time Complexity</h3></p>
+
+<table>
+
+<tr>
+<th>Case</th>
+<th>Time Complexity</th>
+</tr>
+
+<tr>
+<td>
+<strong>Best Case</strong>
+</td>
+<td>O(n log n)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Average Case</strong>
+</td>
+<td>O(n log n)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Worst Case</strong>
+</td>
+<td>O(n log n)</td>
+</tr>
+
+</table></br></br>
+
+<ul style="font-size:160%;"><li><b>Best Case Complexity</b> - It occurs when there is no sorting required, i.e. the array is already sorted. The best-case time complexity of heap sort is <b>O(n logn).</b></li>
+<li><b>Average Case Complexity</b>- It occurs when the array elements are in jumbled order that is not properly ascending and not properly descending. The average case time complexity of heap sort is <b>O(n log n).</b></li>
+<li><b>Worst Case Complexity</b> - It occurs when the array elements are required to be sorted in reverse order. That means suppose you have to sort the array elements in ascending order, but its elements are in descending order. The worst-case time complexity of heap sort is <b>O(n log n)</b>.</li></ul>
+
+<p style="font-size:160%;">The time complexity of heap sort is <b>O(n logn)</b> in all three cases (best case, average case, and worst case). The height of a complete binary tree having n elements is <b>logn</b>.</p></br>
+
+
+<p><h3 style="font-size:180%">2. Space Complexity</h3></p>
+
+<table>
+
+<tr>
+<td>
+<strong>Space complexity</strong>
+</td>
+<td>O(1)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Stable</strong>
+</td>
+<td>No</td>
+</tr>
+
+</table>
+
+</body>
+
+</html>
+
+
+

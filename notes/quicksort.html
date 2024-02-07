@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+<body>
+    <b><h1 style="font-size:300%" align="center"><mark style="background-color:gray;">Quick Sort</mark></h1></b></br>
+    <!-- Use of <p> tag -->
+    <p style="font-size:160%;">Quick Sort is a widely used and efficient sorting algorithm that works by dividing an array into smaller subarrays, then sorting those subarrays independently. It is known for its fast performance and is widely used in real-world applications.</p></br>
+    <p style="font-size:160%;">Quick Sort is a divide-and-conquer algorithm that selects a 'pivot' element from the array and partitions the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively.</p></br>
+    <p style="font-size:160%;">Quick Sort is efficient and has an average-case time complexity of O(n*log(n)), making it suitable for large data sets. However, its worst-case time complexity is O(n^2), which can be mitigated using various strategies like choosing a good pivot.</p></br>
+    <p style="font-size:160%;">Quick Sort is commonly used where:</p>
+    <ul style="font-size:160%;">
+        <li>Efficiency is crucial</li>
+        <li>Large data sets need to be sorted</li>
+    </ul>
+    
+    <h2 style="font-size:250%"><ins>Algorithm</ins></h2>
+    <p style="font-size:160%;">In the Quick Sort algorithm, the key step is selecting a pivot element and partitioning the array around it. Here's the high-level algorithm:</p></br>
+    <pre style="background-color:lightgray"><h2>begin QuickSort(arr, low, high)
+   if low < high
+      pivotIndex = Partition(arr, low, high)
+      QuickSort(arr, low, pivotIndex - 1)
+      QuickSort(arr, pivotIndex + 1, high)
+
+   function Partition(arr, low, high)
+   pivot = arr[high]  // Choose the pivot as the last element
+   i = low - 1       // Initialize an index for the smaller element
+
+   for j = low to high - 1
+      if arr[j] <= pivot
+         i = i + 1
+         Swap(arr[i], arr[j])
+
+   // Swap the pivot element with the element at (i + 1)
+   Swap(arr[i + 1], arr[high])
+
+   return i + 1
+
+</h2></pre></br>  
+    
+    <h2 style="font-size:250%"><ins>Working of Quick Sort Algorithm</ins></h2></br>
+    <p style="font-size:160%;">Let's understand the working of the Quick Sort algorithm with an example:</p></br>
+    <p style="font-size:160%;">Consider an unsorted array:</p></br>
+    <img src="https://example.com/quick-sort-example.png"></p></br>
+
+    <p><h3 style="font-size:170%;"><li>Choosing a Pivot</li></h3></p>
+    <p style="font-size:160%;">The first step in Quick Sort is selecting a pivot element. This example chooses the last element, 20, as the pivot.</p>
+    <img src="https://example.com/quick-sort-pivot.png" width="300" height="50"></p></br>
+
+    <p><h3 style="font-size:170%;"><li>Partitioning</li></h3></p>
+    <p style="font-size:160%;">Next, the array is partitioned into two subarrays, elements less than the pivot (left) and elements greater than the pivot (right).</p>
+    <img src="https://example.com/quick-sort-partition.png" width="500" height="100"></p></br>
+
+    <p><h3 style="font-size:170%;"><li>Recursive Sorting</li></h3></p>
+    <p style="font-size:160%;">The subarrays are then recursively sorted using the same Quick Sort algorithm.</p></br>
+
+    <p><h2 style="font-size:250%"><ins>Quick Sort Complexity</ins></h2></p></br>
+    <p style="font-size:160%;">Now, let's look at the time complexity of Quick Sort in different cases and its space complexity:</p></br>
+
+    <p><h3 style="font-size:180%">1. Time Complexity</h3></p>
+    <table>
+        <tr>
+            <th>Case</th>
+            <th>Time Complexity</th>
+        </tr>
+        <tr>
+            <td><strong>Best Case</strong></td>
+            <td>O(n*log(n))</td>
+        </tr>
+        <tr>
+            <td><strong>Average Case</strong></td>
+            <td>O(n*log(n))</td>
+        </tr>
+        <tr>
+            <td><strong>Worst Case</strong></td>
+            <td>O(n^2)</td>
+        </tr>
+    </table></br></br>
+    <p style="font-size:160%;">Quick Sort has an average and best-case time complexity of O(n*log(n)), which makes it efficient for large datasets. The worst-case time complexity is O(n^2), but this can be improved by using good pivot selection techniques.</p>
+
+    <p><h3 style="font-size:180%">2. Space Complexity</h3></p>
+    <table>
+        <tr>
+            <td><strong>Space Complexity</strong></td>
+            <td>O(log(n))</td>
+        </tr>
+        <tr>
+            <td><strong>Stable</strong></td>
+            <td>No</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+
+<body>
+	<b><h1 style="font-size:300%" align="center"><mark style="background-color:gray;">Binary Search</mark></h1></b></br>
+	<!-- Use of <p> tag -->
+	<p style="font-size:160%;">In this article, we will discuss the Binary Search Algorithm. Searching is the process of finding some particular element in the list. If the element is present in the list, then the process is called successful, and the process returns the location of that element. Otherwise, the search is called unsuccessful.<br><br><br>
+
+Linear Search and Binary Search are the two popular searching techniques. Here we will discuss the Binary Search Algorithm.<br><br><br>
+
+Binary search is the search technique that works efficiently on sorted lists. Hence, to search an element into some list using the binary search technique, we must ensure that the list is sorted.<br><br><br>
+
+Binary search follows the divide and conquer approach in which the list is divided into two halves, and the item is compared with the middle element of the list. If the match is found then, the location of the middle element is returned. Otherwise, we search into either of the halves depending upon the result produced through the match.</p></br></br>
+
+       
+<p style="font-size:160%;" >Now, let's see the algorithm of Binary Search.</p></br></br>
+
+<h2 style="font-size:160%"><ins>Algorithm</ins></h2>       
+<pre style="background-color:lightgray"><h3>Binary_Search(a, lower_bound, upper_bound, val) // 'a' is the given array, 'lower_bound' is the index of the first array element, 'upper_bound' is the index of the last array element, 'val' is the value to search  
+Step 1: set beg = lower_bound, end = upper_bound, pos = - 1  
+Step 2: repeat steps 3 and 4 while beg <=end  
+Step 3: set mid = (beg + end)/2  
+Step 4: if a[mid] = val  
+set pos = mid  
+print pos  
+go to step 6  
+else if a[mid] > val  
+set end = mid - 1  
+else  
+set beg = mid + 1  
+[end of if]  
+[end of loop]  
+Step 5: if pos = -1  
+print "value is not present in the array"  
+[end of if]  
+Step 6: exit      </h3></pre></br>   
+
+
+<h2 style="font-size:160%"><ins>Working of Binary search</ins></h2>
+<p style="font-size:160%;">Now, let's see the working of the Binary Search Algorithm.</br></br>
+
+To understand the working of Binary search algorithm, let's take an sorted array. It will be easy to understand the working of Binary search with an example.</br></br></br>
+
+There are two methods to implement the binary search algorithm -<br><br>
+<ul><li>Iterative method</li>
+<li>Recursive method</li></ul><br><br>
+The recursive method of binary search follows the divide and conquer approach.
+
+Let the elements of array are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/binary-search-algorithm1.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Let the element to search is, K = 56<br><br><br>
+
+We have to use the below formula to calculate the mid of the array -<br><br>
+<mark style="background-color:pink;"><b style="background-color:red;">mid</b> = (beg + end)/2 </mark> </p></br>
+< p style="font-size:160%;">So, in the given array -<br><br><br>
+
+beg = 0<br><br><br>
+
+end = 8<br><br><br>
+
+mid = (0 + 8)/2 = 4. So, 4 is the mid of the array.</p><br><br><br>
+<img src="https://static.javatpoint.com/ds/images/binary-search-algorithm2.png" width="300" height="500"></p></br>
+
+<p style="font-size:160%;">Now, the element to search is found. So algorithm will return the index of the element matched.</p></br>
+
+
+<p><h2 style="font-size:160%"><ins>Binary Search complexity</ins></h2></p></br>
+<p style="font-size:160%;" >Now, let's see the time complexity of Binary search in the best case, average case, and worst case. We will also see the space complexity of Binary search.</p></br>
+
+<p><h3 style="font-size:180%">1. Time Complexity</h3></p>
+
+<table>
+
+<tr>
+<th>Case</th>
+<th>Time Complexity</th>
+</tr>
+
+<tr>
+<td>
+<strong>Best Case</strong>
+</td>
+<td>O(1)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Average Case</strong>
+</td>
+<td>O(logn)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Worst Case</strong>
+</td>
+<td>O(logn)</td>
+</tr>
+
+</table></br></br>
+
+<ul style="font-size:160%;"><li><b>Best Case Complexity</b> -In Binary search, best case occurs when the element to search is found in first comparison, i.e., when the first middle element itself is the element to be searched. The best-case time complexity of Binary search is O(1).</li>
+<li><b>Average Case Complexity</b>- The average case time complexity of Binary search is O(logn).</li>
+<li><b>Worst Case Complexity</b> -In Binary search, the worst case occurs, when we have to keep reducing the search space till it has only one element. The worst-case time complexity of Binary search is O(logn).</li></ul>
+
+
+<p><h3 style="font-size:180%">2. Space Complexity</h3></p>
+
+<table>
+
+<tr>
+<td>
+<strong>Space complexity</strong>
+</td>
+<td>O(1)</td>
+</tr>
+
+
+</table>
+<ul style="font-size:160%;"><li>The space complexity of selection sort is O(1). It is because, in selection sort, an extra variable is required for swapping.</li></ul></br>
+</body>
+
+</html>
+
+

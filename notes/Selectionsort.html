@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+
+<body>
+	<b><h1 style="font-size:300%" align="center"><mark style="background-color:gray;">Selection Sort</mark></h1></b></br>
+	<!-- Use of <p> tag -->
+	<p style="font-size:160%;">In selection sort, the smallest value among the unsorted elements of the array is selected in every pass and inserted to its appropriate position into the array. It is also the simplest algorithm. It is an in-place comparison sorting algorithm. In this algorithm, the array is divided into two parts, first is sorted part, and another one is the unsorted part. Initially, the sorted part of the array is empty, and unsorted part is the given array. Sorted part is placed at the left, while the unsorted part is placed at the right.</br></br></br>
+In selection sort, the first smallest element is selected from the unsorted array and placed at the first position. After that second smallest element is selected and placed in the second position. The process continues until the array is entirely sorted.</br></br></br>
+The average and worst-case complexity of selection sort is <b>O(n<sup>2</sup>)</b>, where <b>n</b> is the number of items. Due to this, it is not suitable for large data sets.</p></br></br>
+
+       
+<p style="font-size:160%;" >Selection sort is generally used when -</br></br>
+
+<ul style="font-size:160%;"><li>A small array is to be sorted</li>
+<li>Swapping cost doesn't matter</li>
+<li>It is compulsory to check all elements</li></ul></p></br>
+
+<p style="font-size:160%;" >Now, let's see the algorithm of selection sort.</p></br>
+
+<h2 style="font-size:160%"><ins>Algorithm</ins></h2>       
+<pre style="background-color:lightgray"><h3>SELECTION SORT(arr, n)  
+  
+Step 1: Repeat Steps 2 and 3 for i = 0 to n-1  
+Step 2: CALL SMALLEST(arr, i, n, pos)  
+Step 3: SWAP arr[i] with arr[pos]  
+[END OF LOOP]  
+Step 4: EXIT  
+  
+SMALLEST (arr, i, n, pos)  
+Step 1: [INITIALIZE] SET SMALL = arr[i]  
+Step 2: [INITIALIZE] SET pos = i  
+Step 3: Repeat for j = i+1 to n  
+if (SMALL > arr[j])  
+     SET SMALL = arr[j]  
+SET pos = j  
+[END OF if]  
+[END OF LOOP]  
+Step 4: RETURN pos   </h3></pre></br>   
+
+
+<h2 style="font-size:160%"><ins>Working of Selection sort Algorithm</ins></h2>
+<p style="font-size:160%;">Now, let's see the working of the Selection sort Algorithm.</br></br>
+
+To understand the working of the Selection sort algorithm, let's take an unsorted array. It will be easier to understand the Selection sort via an example.</br></br>
+
+Let the elements of array are -</p></br>
+<img src="https://static.javatpoint.com/ds/images/selection-sort.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;"></b>Now, for the first position in the sorted array, the entire array is to be scanned sequentially.</br></br>
+At present, <b>12</b> is stored at the first position, after searching the entire array, it is found that <b>8</b> is the smallest value.</p></br>
+<img src="https://static.javatpoint.com/ds/images/selection-sort2.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;"></b>So, swap 12 with 8. After the first iteration, 8 will appear at the first position in the sorted array.</p></br>
+<img src="https://static.javatpoint.com/ds/images/selection-sort3.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;"></b>For the second position, where 29 is stored presently, we again sequentially scan the rest of the items of unsorted array. After scanning, we find that 12 is the second lowest element in the array that should be appeared at second position.
+
+</p></br>
+<img src="https://static.javatpoint.com/ds/images/selection-sort4.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;"></b>Now, swap 29 with 12. After the second iteration, 12 will appear at the second position in the sorted array. So, after two iterations, the two smallest values are placed at the beginning in a sorted way.</p></br>
+<img src="https://static.javatpoint.com/ds/images/selection-sort5.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;"></b>The same process is applied to the rest of the array elements. Now, we are showing a pictorial representation of the entire sorting process.
+
+</p></br>
+<img src="https://static.javatpoint.com/ds/images/selection-sort6.png" width="300" height="500"></p></br>
+
+
+
+<p style="font-size:160%;">Now, the array is completely sorted.</p></br>
+
+
+
+
+<p><h2 style="font-size:160%"><ins>Selection sort complexity</ins></h2></p></br>
+<p style="font-size:160%;" >Now, let's see the time complexity of Selectionsort in best case, average case, and in worst case. We will also see the space complexity of selectionsort.</p></br>
+
+<p><h3 style="font-size:180%">1. Time Complexity</h3></p>
+
+<table>
+
+<tr>
+<th>Case</th>
+<th>Time Complexity</th>
+</tr>
+
+<tr>
+<td>
+<strong>Best Case</strong>
+</td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Average Case</strong>
+</td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Worst Case</strong>
+</td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+
+</table></br></br>
+
+<ul style="font-size:160%;"><li><b>Best Case Complexity</b> -It occurs when there is no sorting required, i.e. the array is already sorted. The best-case time complexity of selection sort is  <b>O(n<sup>2</sup>)</b></li>
+<li><b>Average Case Complexity</b>- It occurs when the array elements are in jumbled order that is not properly ascending and not properly descending. The average case time complexity of selection sort is <b>O(n<sup>2</sup>)</b></li>
+<li><b>Worst Case Complexity</b> -It occurs when the array elements are required to be sorted in reverse order. That means suppose you have to sort the array elements in ascending order, but its elements are in descending order. The worst-case time complexity of selection sort is <b>O(n<sup>2</sup>)</b></li></ul>
+
+
+<p><h3 style="font-size:180%">2. Space Complexity</h3></p>
+
+<table>
+
+<tr>
+<td>
+<strong>Space complexity</strong>
+</td>
+<td>O(n)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Stable</strong>
+</td>
+<td>Yes</td>
+</tr>
+
+</table>
+<ul style="font-size:160%;"><li>The space complexity of selection sort is O(1). It is because, in selection sort, an extra variable is required for swapping.</li></ul></br>
+</body>
+
+</html>
+
+

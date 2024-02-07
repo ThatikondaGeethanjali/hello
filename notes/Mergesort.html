@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+
+<body>
+	<b><h1 style="font-size:300%" align="center"><mark style="background-color:gray;">Merge Sort</mark></h1></b></br>
+	<!-- Use of <p> tag -->
+	<p style="font-size:160%;">In this article, we will discuss the merge sort Algorithm. Merge sort is the sorting technique that follows the divide and conquer approach. This article will be very helpful and interesting to students as they might face merge sort as a question in their examinations. In coding or technical interviews for software engineers, sorting algorithms are widely asked. So, it is important to discuss the topic.</br></br></br>
+
+Merge sort is similar to the quick sort algorithm as it uses the divide and conquer approach to sort the elements. It is one of the most popular and efficient sorting algorithm. It divides the given list into two equal halves, calls itself for the two halves and then merges the two sorted halves. We have to define the merge() function to perform the merging.</br></br></br>
+
+The sub-lists are divided again and again into halves until the list cannot be divided further. Then we combine the pair of one element lists into two-element lists, sorting them in the process. The sorted two-element pairs is merged into the four-element lists, and so on until we get the sorted list.
+
+Now, let's see the algorithm of merge sort.</p></br></br>      
+
+
+
+<h2 style="font-size:250%"><ins>Algorithm</ins></h2>  
+ <p style="font-size:160%;">In the following algorithm, arr is the given array, beg is the starting element, and end is the last element of the array</p></br>   
+<pre style="background-color:lightgray"><h2>MERGE_SORT(arr, beg, end)  
+  
+if beg < end  
+set mid = (beg + end)/2  
+MERGE_SORT(arr, beg, mid)  
+MERGE_SORT(arr, mid + 1, end)  
+MERGE (arr, beg, mid, end)  
+end of if  
+  
+END MERGE_SORT   </h2></pre></br>  
+
+<p style="font-size:160%;">The important part of the merge sort is the <b>MERGE</b> function. This function performs the merging of two sorted sub-arrays that are <b>A[beg…mid]</b> and <b>A[mid+1…end],</b> to build one sorted array <b>A[beg…end].</b> So, the inputs of the MERGE function are <b>A[]</b>, <b>beg</b>, <b>mid</b>, and <b>end</b>.</br></br>
+
+The implementation of the MERGE function is given as follows -</p></br>
+<pre style="background-color:lightgray"><h2>/* Function to merge the subarrays of a[] */  
+void merge(int a[], int beg, int mid, int end)    
+{    
+    int i, j, k;  
+    int n1 = mid - beg + 1;    
+    int n2 = end - mid;    
+      
+    int LeftArray[n1], RightArray[n2]; //temporary arrays  
+      
+    /* copy data to temp arrays */  
+    for (int i = 0; i < n1; i++)    
+    LeftArray[i] = a[beg + i];    
+    for (int j = 0; j < n2; j++)    
+    RightArray[j] = a[mid + 1 + j];    
+      
+    i = 0, /* initial index of first sub-array */  
+    j = 0; /* initial index of second sub-array */   
+    k = beg;  /* initial index of merged sub-array */  
+      
+    while (i < n1 && j < n2)    
+    {    
+        if(LeftArray[i] <= RightArray[j])    
+        {    
+            a[k] = LeftArray[i];    
+            i++;    
+        }    
+        else    
+        {    
+            a[k] = RightArray[j];    
+            j++;    
+        }    
+        k++;    
+    }    
+    while (i<n1)    
+    {    
+        a[k] = LeftArray[i];    
+        i++;    
+        k++;    
+    }    
+      
+    while (j<n2)    
+    {    
+        a[k] = RightArray[j];    
+        j++;    
+        k++;    
+    }    
+}    </h2></pre></br>  
+
+
+<h2 style="font-size:250%"><ins>Working of Merge sort Algorithm</ins></h2>
+<p style="font-size:160%;">Now, let's see the working of merge sort Algorithm.</br></br></br>
+
+
+To understand the working of the merge sort algorithm, let's take an unsorted array. It will be easier to understand the merge sort via an example.</br></br></br>
+
+
+Let the elements of array are -</p></br></br>
+<img src="https://static.javatpoint.com/ds/images/merge-sort.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">According to the merge sort, first divide the given array into two equal halves. Merge sort keeps dividing the list into equal parts until it cannot be further divided.</br></br></br>
+
+As there are eight elements in the given array, so it is divided into two arrays of size 4.</p></br>
+<img src="https://static.javatpoint.com/ds/images/merge-sort2.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, again divide these two arrays into halves. As they are of size 4, so divide them into new arrays of size 2.</p></br>
+<img src="https://static.javatpoint.com/ds/images/merge-sort3.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, again divide these arrays to get the atomic value that cannot be further divided.</p></br>
+<img src="https://static.javatpoint.com/ds/images/merge-sort4.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, combine them in the same manner they were broken.</br></br></br>
+
+In combining, first compare the element of each array and then combine them into another array in sorted order.</br></br></br>
+
+So, first compare 12 and 31, both are in sorted positions. Then compare 25 and 8, and in the list of two values, put 8 first followed by 25. Then compare 32 and 17, sort them and put 17 first followed by 32. After that, compare 40 and 42, and place them sequentially.</p></br>
+<img src="https://static.javatpoint.com/ds/images/merge-sort5.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">In the next iteration of combining, now compare the arrays with two data values and merge them into an array of found values in sorted order.</p></br>
+<img src="https://static.javatpoint.com/ds/images/merge-sort6.png" width="300" height="50"></p></br>
+
+<p style="font-size:160%;">Now, there is a final merging of the arrays. After the final merging of above arrays, the array will look like -</p></br>
+<img src="https://static.javatpoint.com/ds/images/merge-sort7.png" width="300" height="50"></p></br>
+
+
+<p style="font-size:160%;">Now, the array is completely sorted.</p></br>
+
+
+
+<p><h2 style="font-size:250%"><ins>Merge sort complexity</ins></h2></p></br>
+<p style="font-size:160%;" >Now, let's see the time complexity of Merge sort in the best case, average case, and worst case. We will also see the space complexity of Merge sort.</p></br>
+
+<p><h3 style="font-size:180%">1. Time Complexity</h3></p>
+
+<table>
+
+<tr>
+<th>Case</th>
+<th>Time Complexity</th>
+</tr>
+
+<tr>
+<td>
+<strong>Best Case</strong>
+</td>
+<td>O(n<sup>*</sup>logn)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Average Case</strong>
+</td>
+<td>O(n<sup>*</sup>logn)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Worst Case</strong>
+</td>
+<td>O(n<sup>*</sup>logn)</td>
+</tr>
+
+</table></br></br>
+
+<ul style="font-size:160%;"><li><b>Best Case Complexity</b> -It occurs when there is no sorting required, i.e. the array is already sorted. The best-case time complexity of merge sort is <b>O(n<sup>*</sup>logn).</b></li>
+<li><b>Average Case Complexity</b>-It occurs when the array elements are in jumbled order that is not properly ascending and not properly descending. The average case time complexity of merge sort is <b>O(n<sup>*</sup>logn)..</b></li>
+<li><b>Worst Case Complexity</b> - It occurs when the array elements are required to be sorted in reverse order. That means suppose you have to sort the array elements in ascending order, but its elements are in descending order. The worst-case time complexity of merge sort is<b>O(n<sup>*</sup>logn).</b>.</li></ul>
+
+
+
+<p><h3 style="font-size:180%">2. Space Complexity</h3></p>
+
+<table>
+
+<tr>
+<td>
+<strong>Space complexity</strong>
+</td>
+<td>O(n)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Stable</strong>
+</td>
+<td>Yes</td>
+</tr>
+
+</table>
+
+</body>
+
+</html>
+
+

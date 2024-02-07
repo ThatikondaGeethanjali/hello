@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+        }
+        #array-container {
+            display: flex;
+            gap: 10px;
+        }
+        .array-bar {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #3498db;
+            color: #fff;
+        }
+        #search-bar {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #3b3a3a;
+            font-size: x-large;
+            color:white;
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="search-bar">
+        <label for="arraySize">Array Size:</label>
+        <input type="number" id="arraySize" value="10">
+       
+        <label for="arrayValues">Array Values (comma-separated):</label>
+        <input type="text" id="arrayValues" placeholder="Enter values(for binary search enter sorted list)" size="50">
+         <button onclick="generateArray()">Generate Array</button><br/><br/>
+        <label for="search">Search for:</label>
+        <input type="number" id="search" />
+        <button onclick="linearSearch()">Linear Search</button>
+        <button onclick="binarySearch()">Binary Search</button>
+        <label for="speed">Speed:</label>
+        <input type="range" id="speed" min="1" max="1000" value="500"><br/><br/>
+    </div>
+    <center><font color="red"><h3> red indicates comparing with the target</h3><font></center>
+    <center><font color="blue"><h3> Index values starts from "0"</h3><font></center>
+    <div id="container">
+        <div id="array-container"></div>
+    </div>
+    <script>
+        const arrayContainer = document.getElementById("array-container");
+        const arraySizeInput = document.getElementById("arraySize");
+        const arrayValuesInput = document.getElementById("arrayValues");
+        const searchInput = document.getElementById("search");
+        const speedInput = document.getElementById("speed");
+
+        let array = [];
+        let animations = [];
+         
+        // Generate an array of numbers based on user input values
+        function generateArray() {
+            const values = arrayValuesInput.value.split(',').map(value => Number(value.trim()));
+            array = values.filter(value => !isNaN(value));
+            animations = [];
+            arrayContainer.innerHTML = "";
+
+            for (let i = 0; i < array.length; i++) {
+                const value = array[i];
+                const bar = document.createElement("div");
+                bar.className = "array-bar";
+                bar.style.height = `${100}px`;
+                bar.textContent = value;
+                arrayContainer.appendChild(bar);
+            }
+        }
+
+        // Linear Search
+        function linearSearch() {
+            const target = Number(searchInput.value);
+            animations = [];let indexfound=-1;
+            for (let i = 0; i < array.length; i++) {
+                animations.push({ index: i, type: "compare" });
+                if (array[i] === target) {
+                    animations.push({ index: i, type: "found" });
+                    indexfound=i;
+                    break;                 
+                }
+            }
+            if(indexfound===-1)
+                 alert("element not found");  
+             else
+                 alert("element found at index "+indexfound);                
+           animateSearch();
+           
+        }
+
+        // Binary Search
+        function binarySearch() {
+            alert("verify that entered array list is in sorted order");let indexfound ;
+            const target = Number(searchInput.value);
+            animations = [];
+            indexfound = binarySearchHelper(array, target, 0, array.length - 1);
+           // alert(indexfound);
+            animateSearch();
+            
+        }
+
+        function binarySearchHelper(arr, target, start, end) {
+            if (start <= end) {
+                const mid = Math.floor((start + end) / 2);
+                animations.push({ index: mid, type: "compare" });
+                if (arr[mid] === target) {
+                    animations.push({ index: mid, type: "found" });
+                   alert("Element found at index  "+mid);
+                    //return mid;
+                } else if (arr[mid] < target) {
+                    binarySearchHelper(arr, target, mid + 1, end);
+                } else {
+                    binarySearchHelper(arr, target, start, mid - 1);
+                }
+            }
+        }
+
+        // Animation function
+        function animateSearch() {
+            const speed = 1000-speedInput.value;
+            for (let i = 0; i < animations.length; i++) {
+                const { index, type } = animations[i];
+                const bar = arrayContainer.children[index];
+                setTimeout(() => {
+                    if (type === "compare") {
+                        bar.style.backgroundColor = "red";
+                    } else if (type === "found") {
+                        bar.style.backgroundColor = "green";
+                    }
+                    setTimeout(() => {
+                        bar.style.backgroundColor = "#3498db";
+                    }, speed);
+                }, i * speed);
+            }
+   
+        }
+
+        // Initial setup
+        generateArray();
+
+        // Event listener for generating a new array
+        document.getElementById("generate-array").addEventListener("click", generateArray);
+    </script>
+</body>
+</html>

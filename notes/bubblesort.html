@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+
+<body>
+	<b><h1 style="font-size:300%" align="center"><mark style="background-color:gray;">Bubble Sort</mark></h1></b></br>
+	<!-- Use of <p> tag -->
+	<p style="font-size:160%;">Bubble sort works on the repeatedly swapping of adjacent elements until they are not in the intended order. It is called bubble sort because the movement of array elements is just like the movement of air bubbles in the water. Bubbles in water rise up to the surface; similarly, the array elements in bubble sort move to the end in each iteration.</p></br>
+        <p style="font-size:160%;">Although it is simple to use, it is primarily used as an educational tool because the performance of bubble sort is poor in the real world. It is not suitable for large data sets. The average and worst-case complexity of Bubble sort is O(n<sup>2</sup>), where n is a number of items.</p></br>
+        <p style="font-size:160%;">Bubble short is majorly used where -</p>
+<ul style="font-size:160%;"><li>complexity does not matter</li>
+<li>simple and shortcode is preferred</li></ul>
+        
+<h2 style="font-size:250%"><ins>Algorithm</ins></h2>
+         <p style="font-size:160%;">In the algorithm given below, suppose arr is an array of n elements. The assumed swap function in the algorithm will swap the values of given array elements.</p></br>
+<pre style="background-color:lightgray"><h2>begin BubbleSort(arr)
+   for all array elements 
+      if arr[i] > arr[i+1] 
+         swap(arr[i], arr[i+1])  
+      end if  
+   end for   
+   return arr    
+end BubbleSort</h2></pre></br>  
+
+<h2 style="font-size:250%"><ins>Working of Bubble sort Algorithm</ins></h2></br>
+<p style="font-size:160%;">Now, let's see the working of Bubble sort Algorithm.</p></br>
+<p style="font-size:160%;">To understand the working of bubble sort algorithm, let's take an unsorted array. We are taking a short and accurate array, as we know the complexity of bubble sort is <b>O(n<sup>2</sup>).</b></p></br>
+<p style="font-size:160%;">Let the elements of array are -</br></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm1.png" width="300" height="50"></p></br>
+
+<p><h3 style="font-size:170%;"><li>First Pass</li></h3></p>
+<p style="font-size:160%;">Sorting will start from the initial two elements. Let compare them to check which is greater.</br></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm2.png" width="300" height="50"></p></br>
+<p style="font-size:160%;">Here, 32 is greater than 13 (32 > 13), so it is already sorted. Now, compare 32 with 26.</p>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm3.png" width="300" height="50"></p></br>
+<p style="font-size:160%;">Here, 26 is smaller than 36. So, swapping is required. After swapping new array will look like -</p></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm4.png" width="300" height="50"></p></br>
+<p style="font-size:160%;">Now, compare 32 and 35.</p></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm5.png" width="300" height="50"></p></br>
+<p style="font-size:160%;">Here, 35 is greater than 32. So, there is no swapping required as they are already sorted.</p></br>
+<p style="font-size:160%;">Now, the comparison will be in between 35 and 10.</p></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm6.png" width="300" height="50"></p></br>
+<p style="font-size:160%;">Here, 10 is smaller than 35 that are not sorted. So, swapping is required. Now, we reach at the end of the array. After first pass, the array will be -</p></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm7.png" width="300" height="50"></p></br>
+<p style="font-size:160%;">Now, move to the second iteration.</p>
+
+<p ><h3 style="font-size:170%;"><li>Second Pass</li></h3></p>
+<p style="font-size:160%;">The same process will be followed for second iteration.</br></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm8.png" width="300" height="100"></p></br>
+<p style="font-size:160%;">Here, 10 is smaller than 32. So, swapping is required. After swapping, the array will be -</p>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm9.png" width="300" height="100"></p></br>
+<p style="font-size:160%;">Now, move to the third iteration.</p></br>
+
+<p><h3 style="font-size:170%;"><li>Third Pass</li></h3></p>
+<p style="font-size:160%;">The same process will be followed for third iteration.</p></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm10.png" width="300" height="100"></p></br>
+<p style="font-size:160%;">Here, 10 is smaller than 26. So, swapping is required. After swapping, the array will be -</p></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm11.png" width="300" height="100"></p></br>
+<p style="font-size:160%;">Now, move to the fourth iteration.</p></br>
+
+<p><h3 style="font-size:170%;"><li>Fourth Pass</li></h3></p></br>
+<p style="font-size:160%;">Similarly, after the fourth iteration, the array will be -</p></br>
+<img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm12.png" width="300" height="50"></p></br>
+<p style="font-size:160%;">Hence, there is no swapping required, so the array is completely sorted.</p>
+
+<p><h2 style="font-size:250%"><ins>Bubble sort complexity</ins></h2></p></br>
+<p style="font-size:160%;" >Now, let's see the time complexity of bubble sort in the best case, average case, and worst case. We will also see the space complexity of bubble sort.</p></br>
+
+<p><h3 style="font-size:180%">1. Time Complexity</h3></p>
+
+<table>
+
+<tr>
+<th>Case</th>
+<th>Time Complexity</th>
+</tr>
+
+<tr>
+<td>
+<strong>Best Case</strong>
+</td>
+<td>O(n)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Average Case</strong>
+</td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Worst Case</strong>
+</td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+
+</table></br></br>
+
+<ul style="font-size:160%;"><li><b>Best Case Complexity </b>- It occurs when there is no sorting required, i.e. the array is already sorted. The best-case time complexity of bubble sort is O(n).</li>
+<li><b>Average Case Complexity</b> - It occurs when the array elements are in jumbled order that is not properly ascending and not properly descending. The average case time complexity of bubble sort is O(n<sup>2</sup>).</li>
+<li><b>Worst Case Complexity</b> - It occurs when the array elements are required to be sorted in reverse order. That means suppose you have to sort the array elements in ascending order, but its elements are in descending order. The worst-case time complexity of bubble sort is O(n<sup>2</sup>).</li></ul>
+
+
+<p><h3 style="font-size:180%">2. Space Complexity</h3></p>
+
+<table>
+
+<tr>
+<td>
+<strong>Space complexity</strong>
+</td>
+<td>O(1)</td>
+</tr>
+
+<tr>
+<td>
+<strong>Stable</strong>
+</td>
+<td>Yes</td>
+</tr>
+
+</table>
+
+</body>
+
+</html>
+
+
+
